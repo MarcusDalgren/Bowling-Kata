@@ -7,4 +7,11 @@
  */
 require("./vendor/autoload.php");
 require("./classes/game.php");
-require("./tests/gameTest.php");
+function rollMany(Game $game, $n, $pins) {
+	for ($i = 0; $i < $n; $i++) {
+		$game->roll($pins);
+	}
+}
+$game = new Game();
+rollMany($game, 12, 10);
+echo $game->score();
